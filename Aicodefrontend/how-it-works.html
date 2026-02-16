@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>How It Works - AI Code Review & Rewrite Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { mono: ['JetBrains Mono', 'monospace'], sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        slate: { 950: '#0a0e17' },
+                        accent: { 500: '#22d3ee', 600: '#06b6d4', 400: '#67e8f9' },
+                        emerald: { 500: '#10b981', 600: '#059669' },
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen">
+    <!-- Bubble background: full-screen, behind all UI. -->
+    <div class="bubble-bg" id="bubbleBg" aria-hidden="true"></div>
+    <header class="border-b border-slate-800 bg-slate-900/50 sticky top-0 z-10 safe-area-pad">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <a href="index.html?show=login" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
+                <span class="text-3xl">🤖</span>
+                <span class="text-xl font-bold bg-gradient-to-r from-accent-400 to-emerald-500 bg-clip-text text-transparent">AI Code Review & Rewrite Agent</span>
+            </a>
+            <button type="button" id="backToLoginBtn" class="text-sm text-slate-400 hover:text-accent-400 transition-colors flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-lg bg-slate-800/50 border border-slate-700/50 cursor-pointer touch-manipulation">
+                <i class="fas fa-arrow-left"></i>
+                Back to Login
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+        <div class="mb-10">
+            <h1 class="text-3xl font-bold flex items-center gap-3 mb-2">
+                <i class="fas fa-info-circle text-accent-500"></i>
+                How It Works
+            </h1>
+            <p class="text-slate-500">Learn how to use the AI-powered code review and rewriting tool</p>
+        </div>
+
+        <div class="space-y-8">
+            <section class="rounded-2xl bg-slate-900/80 border border-slate-700/50 p-8">
+                <div class="flex items-start gap-4">
+                    <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-600/20 text-accent-400 flex items-center justify-center font-bold text-lg">1</span>
+                    <div>
+                        <h2 class="text-xl font-semibold text-slate-200 mb-2">Paste Your Code</h2>
+                        <p class="text-slate-400 leading-relaxed">Enter your source code in the editor on the left. Select the programming language from the dropdown — we support Python, JavaScript, TypeScript, Java, C++, C#, Go, Rust, Dart, Kotlin, Swift, HTML, CSS, SCSS, PHP, Ruby, SQL, and more.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rounded-2xl bg-slate-900/80 border border-slate-700/50 p-8">
+                <div class="flex items-start gap-4">
+                    <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-600/20 text-accent-400 flex items-center justify-center font-bold text-lg">2</span>
+                    <div>
+                        <h2 class="text-xl font-semibold text-slate-200 mb-2">Choose Focus Areas</h2>
+                        <p class="text-slate-400 leading-relaxed">Select what you want the AI to analyze: <strong class="text-slate-300">Bugs</strong>, <strong class="text-slate-300">Performance</strong>, <strong class="text-slate-300">Security</strong>, or <strong class="text-slate-300">Best Practices</strong>. Use "All" for a comprehensive review covering every aspect.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rounded-2xl bg-slate-900/80 border border-slate-700/50 p-8">
+                <div class="flex items-start gap-4">
+                    <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-600/20 text-accent-400 flex items-center justify-center font-bold text-lg">3</span>
+                    <div>
+                        <h2 class="text-xl font-semibold text-slate-200 mb-2">Code Review</h2>
+                        <p class="text-slate-400 leading-relaxed">Click <strong class="text-accent-400">Review Code</strong> to get detailed, line-by-line feedback. Issues are categorized by severity: <span class="text-rose-400">Critical</span>, <span class="text-amber-400">High</span>, <span class="text-accent-400">Medium</span>, and <span class="text-emerald-400">Low</span>. You'll also see Key Improvements and an Explanation for better understanding.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rounded-2xl bg-slate-900/80 border border-slate-700/50 p-8">
+                <div class="flex items-start gap-4">
+                    <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-600/20 text-accent-400 flex items-center justify-center font-bold text-lg">4</span>
+                    <div>
+                        <h2 class="text-xl font-semibold text-slate-200 mb-2">Rewrite Code</h2>
+                        <p class="text-slate-400 leading-relaxed">Click <strong class="text-emerald-400">Rewrite Code</strong> for one-click refactoring. The AI produces clean, optimized, and production-ready code with proper documentation, error handling, and best practices — ready to copy and use.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="rounded-2xl bg-slate-800/50 border border-slate-700/50 p-6 text-center">
+                <p class="text-slate-500 text-sm">
+                    <i class="fas fa-bolt text-accent-500 mr-2"></i>
+                    Powered by Groq's ultra-fast inference with Llama 3.3 70B
+                </p>
+            </div>
+        </div>
+    </main>
+    <script>
+        var backBtn = document.getElementById('backToLoginBtn');
+        if (backBtn) {
+            backBtn.addEventListener('click', function () {
+                var loginUrl = 'index.html?show=login';
+                if (window.opener) {
+                    window.opener.location.href = loginUrl;
+                    window.opener.focus();
+                    window.close();
+                } else {
+                    window.location.href = loginUrl;
+                }
+            });
+        }
+    </script>
+    <script src="js/bubbles.js"></script>
+</body>
+</html>
